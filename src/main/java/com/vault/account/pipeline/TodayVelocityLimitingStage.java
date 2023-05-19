@@ -37,26 +37,28 @@ public class TodayVelocityLimitingStage implements BalanceLoaderStage {
         BigDecimal todayIncrementedLoadBalance = BigDecimal.ZERO;
         if(todayLatestLoad.isPresent()) {
             log.info("Found current day latest load info");
+
             short latestTodayLoadAttempt = todayLatestLoad.get().getSuccessfulLoadAttempt();
             if(latestTodayLoadAttempt == 3) {
                 log.warn("Load refused. Customer {} already made 3 loads in the current day", customerId);
-                // return response with accepted = false
+                return null;
             }
 
             BigDecimal latestTodayLoadBalance = new BigDecimal(todayLatestLoad.get().getCumulativeBalance());
             todayIncrementedLoadBalance = latestTodayLoadBalance.add(new BigDecimal(reqMsg.getAmount()));
             if(FIVE_THOUSAND.compareTo(todayIncrementedLoadBalance) < 0) {
                 log.warn("Load refused. Requested load of ${} would exceed the daily limit of ${}", todayIncrementedLoadBalance, FIVE_THOUSAND);
-                // return response with accepted = false
+                return null;
             }
 
             todayIncrementedLoadAttempt = (short) (todayLatestLoad.get().getSuccessfulLoadAttempt() + 1);
         }
         else {
             log.info("No current day latest load info found. This is the first load in the current day");
+
             if(FIVE_THOUSAND.compareTo(reqLoadAmount) < 0) {
                 log.warn("Load refused. Requested load of ${} would exceed the daily limit of ${}", reqLoadAmount, FIVE_THOUSAND);
-                // return response with accepted = false
+                return null;
             }
             todayIncrementedLoadBalance = todayIncrementedLoadBalance.add(reqLoadAmount);
             todayIncrementedLoadAttempt++;

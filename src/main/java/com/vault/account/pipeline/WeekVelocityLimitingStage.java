@@ -46,7 +46,7 @@ public class WeekVelocityLimitingStage implements BalanceLoaderStage {
             weekIncrementedLoadBalance = latestWeekLoadBalance.add(dayResp.getRequestLoadAmount());
             if(TWENTY_THOUSAND.compareTo(weekIncrementedLoadBalance) < 0) {
                 log.warn("Load refused. Requested load of ${} would exceed the daily limit of ${}", weekIncrementedLoadBalance, TWENTY_THOUSAND);
-                // return response with accepted = false
+                return null;
             }
 
             weekIncrementedLoadAttempt = (short) (weekLatestLoad.get().getSuccessfulLoadAttempt() + 1);
