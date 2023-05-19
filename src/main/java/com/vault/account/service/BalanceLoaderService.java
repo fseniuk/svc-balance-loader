@@ -52,7 +52,8 @@ public class BalanceLoaderService {
                     break;
                 }
             }
-        } catch (Throwable ex) {
+        } catch (Throwable th) {
+            log.error("Load processing failed. ", th);
             accepted = false;
             // would be easy to return an error message using the exception message
         }

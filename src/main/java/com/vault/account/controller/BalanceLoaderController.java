@@ -21,6 +21,7 @@ public class BalanceLoaderController {
 
     @PostMapping(value = "/load", produces = MediaType.APPLICATION_JSON_VALUE)
     public LoadResponseMessage load(@RequestBody LoadRequestMessage reqMsg) {
+        log.info("Received load request with id={}", reqMsg.getId());
         return svc.load(reqMsg);
     }
 }

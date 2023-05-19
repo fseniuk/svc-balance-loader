@@ -1,6 +1,6 @@
 package com.vault.account.persist.entity;
 
-import com.vault.account.model.TodayVelocityId;
+import com.vault.account.model.entityid.TodayVelocityId;
 import jakarta.persistence.*;
 import lombok.*;
 

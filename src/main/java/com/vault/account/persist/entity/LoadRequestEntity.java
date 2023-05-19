@@ -1,6 +1,6 @@
 package com.vault.account.persist.entity;
 
-import com.vault.account.model.LoadRequestId;
+import com.vault.account.model.entityid.LoadRequestId;
 import jakarta.persistence.*;
 import lombok.*;
 

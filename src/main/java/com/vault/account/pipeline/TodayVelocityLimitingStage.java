@@ -4,7 +4,7 @@ import com.vault.account.model.BalanceLoaderMessage;
 import com.vault.account.model.request.LoadRequestMessage;
 import com.vault.account.persist.entity.TodayVelocityEntity;
 import com.vault.account.persist.repository.TodayVelocityRepository;
-import com.vault.account.pipeline.model.DayVelocityLimitingResponse;
+import com.vault.account.model.pipeline.DayVelocityLimitingResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

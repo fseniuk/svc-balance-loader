@@ -1,4 +1,4 @@
-package com.vault.account.model;
+package com.vault.account.model.entityid;
 
 import lombok.*;
 

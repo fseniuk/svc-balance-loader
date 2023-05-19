@@ -5,7 +5,7 @@ import com.vault.account.persist.repository.BalanceRepository;
 import com.vault.account.persist.repository.LoadRequestRepository;
 import com.vault.account.persist.repository.TodayVelocityRepository;
 import com.vault.account.persist.repository.WeekVelocityRepository;
-import com.vault.account.pipeline.model.EntityBuildingResponse;
+import com.vault.account.model.pipeline.EntityBuildingResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

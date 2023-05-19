@@ -1,4 +1,4 @@
-package com.vault.account.pipeline.model;
+package com.vault.account.model.pipeline;
 
 import com.vault.account.model.BalanceLoaderMessage;
 import com.vault.account.persist.entity.BalanceEntity;

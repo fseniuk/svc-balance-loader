@@ -1,6 +1,6 @@
 package com.vault.account.persist.repository;
 
-import com.vault.account.model.WeekVelocityId;
+import com.vault.account.model.entityid.WeekVelocityId;
 import com.vault.account.persist.entity.WeekVelocityEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
